@@ -1,0 +1,22 @@
+{
+  "version": "0.0.0",
+  "name": "samplespa-swapiapi",
+  "launch_path": "/index.html",
+  "description": "Sample for creating SPA Page Using Swapi API http://swapi.co/",
+  "developer": {
+    "name": "irfan maulana",
+    "email": "mazipanneh@gmail.com"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  },
+  "locales": {
+    "en": {
+      "name": "samplespa-swapiapi",
+      "description": "Sample for creating SPA Page Using Swapi API http://swapi.co/"
+    }
+  }
+}

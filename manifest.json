@@ -1,0 +1,7 @@
+{
+  "name": "SampleSPA-SwapiApi",
+  "short_name": "SampleSPA-SwapiApi",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait"
+}
