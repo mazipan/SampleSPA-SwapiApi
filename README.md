@@ -13,7 +13,7 @@ Sample for creating SPA Page Using Swapi API http://swapi.co/</br>
 - API from http://swapi.co/
 
 <br/>
-<h3>Instalation :</h3>
+<h3>Installation :</h3>
 - Install depedency
 <pre>
 sudo npm install
