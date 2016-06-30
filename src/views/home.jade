@@ -18,7 +18,8 @@ body
                 div(class="row")
                     div(class="col-md-6 col-md-offset-3")
                         h1(class="text-center text-bold text-light mt-4x") Sample SPA Using Swapi API
-                        h3(class="text-center text-bold text-light") by Irfan Maulana
+                        h3(class="text-center text-bold text-light typed-text")
+                        h5(class="text-center text-light") Code by Irfan Maulana
                         div(class="row pt-2x pb-3x")
                             a(href="dashboard" class="btn btn-success btn-block mt-4x" type="submit")
                                 span(class="fa-2x") Goes to page
@@ -27,3 +28,20 @@ script const ROOT_URL = "#{root}";
 script(src="/javascripts/library/jquery-1.11.0.min.js")
 script(src="/javascripts/library/bootstrap.min.js")
 script(src="/javascripts/library/html5shiv.js")
+script(src="/javascripts/library/typed.js")
+script.
+    // Initialize Firebase
+    $(function(){
+        $(".typed-text").typed({
+            strings: [
+                "Using API from http://swapi.co/",
+                "NodeJS and Expressjs",
+                "Jade Templating",
+                "AngularJS Framework",
+                "Bootstrap CSS Framework"],
+            typeSpeed: 0,
+            cursorChar: "|",
+            backDelay: 500,
+            loop: true
+        });
+    });
