@@ -38,9 +38,9 @@ module.exports = function(grunt) {
                 files: {
                     'build/public/stylesheets/all-combine-style.min.css':
                         [
-                            'src/public/stylesheets/library/bootstrap.min.css',
-                            'src/public/stylesheets/library/bootstrap-theme.min.css',
-                            'build/public/stylesheets/style.min.css'
+                            'src/public/stylesheets/bootstrap.min.css',
+                            'src/public/stylesheets/font-awesome.min.css',
+                            'build/public/stylesheets/harmony.min.css'
                         ]
                 }
             }
