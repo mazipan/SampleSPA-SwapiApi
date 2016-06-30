@@ -2,6 +2,7 @@
 Sample for creating SPA Page Using Swapi API http://swapi.co/</br>
 
 <h3>Preview :</h3>
+<img src="http://i1176.photobucket.com/albums/x322/mazipanneh/swapi-api-screenshoot_zpsvhxwadfo.png" alt="SPA Swapi API"/>
 </br>
 
 <h3>Using technology :</h3>
