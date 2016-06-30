@@ -12,6 +12,17 @@ module.exports = function(grunt) {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
+                compress: {
+                    sequences: true,
+                    dead_code: true,
+                    conditionals: true,
+                    booleans: true,
+                    //unused: true,
+                    if_return: true,
+                    join_vars: true,
+                    drop_console: true,
+                    preserveComments : 'all'
+                },
                 files: [{
                     expand: true,
                     cwd: 'src/',
@@ -24,6 +35,7 @@ module.exports = function(grunt) {
 
         cssmin: {
             options: {
+                shorthandCompacting: true,
                 keepSpecialComments: 0,
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
@@ -36,7 +48,7 @@ module.exports = function(grunt) {
             },
             combine : {
                 files: {
-                    'build/public/stylesheets/all-combine-style.min.css':
+                    'build/public/stylesheets/all-style.min.css':
                         [
                             'src/public/stylesheets/bootstrap.min.css',
                             'src/public/stylesheets/font-awesome.min.css',
@@ -46,12 +58,37 @@ module.exports = function(grunt) {
             }
         },
 
+        concat: {
+            options: {
+                preserveComments: 'all',
+                stripBanners: {
+                    block: 'all'
+                },
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+            },
+            basic_and_extras: {
+                files: {
+                    'build/public/javascripts/all-frontend-js.min.js':
+                        [
+                            'src/public/javascripts/library/jquery-1.11.0.min.js',
+                            'src/public/javascripts/library/bootstrap.min.js',
+                            'build/public/javascripts/library/html5shiv.min.js',
+                            'build/public/javascripts/library/aes.min.js',
+                            'build/public/javascripts/library/md5.min.js',
+                            'build/public/javascripts/library/angularjs/angular.min.js',
+                            'build/public/javascripts/library/angularjs/angular-resource.min.js',
+                            'build/public/javascripts/library/angularjs/angular-route.min.js'
+                        ]
+                }
+            }
+        }
+
     });
 
-    // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    // Default task(s).
-    grunt.registerTask('default', [ 'uglify', 'cssmin']);
+    grunt.loadNpmTasks('grunt-contrib-concat');
+
+    grunt.registerTask('default', [ 'uglify', 'cssmin', 'concat']);
 
 };

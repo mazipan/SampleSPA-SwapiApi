@@ -6,7 +6,11 @@
 	 $(".ts-sidebar-menu li").click(function (e) {
 		 $('nav.ts-sidebar').toggleClass('menu-open');
 	 });
-	/*
+
+	/**
+	CHANGE USING ANGULAR JS NG-CLASS DIRECTIVE
+	*
+	*
 	 var removeAllOpen = function removeAllActiveTab(){
 		 $(".ts-sidebar-menu li").each(function () {
 			 if ($(this).next().length > 0 || $(this).prev().length > 0) {
