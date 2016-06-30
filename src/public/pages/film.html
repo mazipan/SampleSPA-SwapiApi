@@ -8,11 +8,11 @@
 				<li ng-repeat="film in allFilms[i].results track by film.url" class="border-top-blue">
 					<i class="fa fa-film title-panel"></i> &nbsp;&nbsp;<span class="title-panel" ng-bind="film.title"></span><br/>
 					<div class="pane-detail">
-						<span ng-bind="'Director : ' + film.director"></span><br/>
-						<span ng-bind="'Producer : ' + film.producer"></span><br/>
-						<span ng-bind="'Release Date : ' + film.release_date"></span><br/>
-						<span ng-bind="'Opening Crawl : ' + film.opening_crawl"></span><br/>
-						<span ng-bind="'URL Api : ' + film.url"></span><br/>
+						<strong>Director : </strong><span ng-bind="film.director"></span><br/>
+						<strong>Producer : </strong><span ng-bind="film.producer"></span><br/>
+						<strong>Release Date : </strong><span ng-bind="film.release_date"></span><br/>
+						<strong>Opening Crawl : </strong><span ng-bind="film.opening_crawl"></span><br/>
+						<strong>URL Api : </strong><span ng-bind="film.url"></span><br/>
 					</div>
 				</li>
 			</ul>

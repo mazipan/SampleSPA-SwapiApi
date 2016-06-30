@@ -8,14 +8,14 @@
 				<li ng-repeat="planet in allPlanets[i].results track by planet.url" class="border-top-green">
 					<i class="fa fa-globe title-panel"></i> &nbsp;&nbsp;<span class="title-panel" ng-bind="planet.name"></span><br/>
 					<div class="pane-detail">
-						<span ng-bind="'Diameter : ' + planet.diameter"></span><br/>
-						<span ng-bind="'Climate : ' + planet.climate"></span><br/>
-						<span ng-bind="'Gravity : ' + planet.gravity"></span><br/>
-						<span ng-bind="'Terrain : ' + planet.terrain"></span><br/>
-						<span ng-bind="'Rotation Period : ' + planet.rotation_period"></span><br/>
-						<span ng-bind="'Orbital Period : ' + planet.orbital_period"></span><br/>
-						<span ng-bind="'Population : ' + planet.population"></span><br/>
-						<span ng-bind="'URL Api : ' + planet.url"></span><br/>
+						<strong>Diameter : </strong><span ng-bind="planet.diameter"></span><br/>
+						<strong>Climate : </strong><span ng-bind="planet.climate"></span><br/>
+						<strong>Gravity : </strong><span ng-bind="planet.gravity"></span><br/>
+						<strong>Terrain : </strong><span ng-bind="planet.terrain"></span><br/>
+						<strong>Rotation Period : </strong><span ng-bind="planet.rotation_period"></span><br/>
+						<strong>Orbital Period : </strong><span ng-bind="planet.orbital_period"></span><br/>
+						<strong>Population : </strong><span ng-bind="planet.population"></span><br/>
+						<strong>URL Api : </strong><span ng-bind="planet.url"></span><br/>
 					</div>
 				</li>
 			</ul>

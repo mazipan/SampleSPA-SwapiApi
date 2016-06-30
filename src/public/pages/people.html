@@ -8,14 +8,14 @@
 				<li ng-repeat="people in allPeople[i].results track by people.url" class="border-top-purple">
 					<i class="fa fa-users title-panel"></i> &nbsp;&nbsp;<span class="title-panel" ng-bind="people.name"></span><br/>
 					<div class="pane-detail">
-						<span ng-bind="'Gender : ' + people.gender"></span><br/>
-						<span ng-bind="'Birth Year : ' + people.birth_year"></span><br/>
-						<span ng-bind="'Height : ' + people.height"></span><br/>
-						<span ng-bind="'Mass : ' + people.mass"></span><br/>
-						<span ng-bind="'Hair Color : ' + people.hair_color"></span><br/>
-						<span ng-bind="'Skin Color : ' + people.skin_color"></span><br/>
-						<span ng-bind="'Eye Color : ' + people.eye_color"></span><br/>
-						<span ng-bind="'URL Api : ' + people.url"></span><br/>
+						<strong>Gender : </strong><span ng-bind="people.gender"></span><br/>
+						<strong>Birth Year : </strong><span ng-bind="people.birth_year"></span><br/>
+						<strong>Height : </strong><span ng-bind="people.height"></span><br/>
+						<strong>Mass : </strong><span ng-bind="people.mass"></span><br/>
+						<strong>Hair Color : </strong><span ng-bind="people.hair_color"></span><br/>
+						<strong>Skin Color : </strong><span ng-bind="people.skin_color"></span><br/>
+						<strong>Eye Color : </strong><span ng-bind="people.eye_color"></span><br/>
+						<strong>URL Api : </strong><span ng-bind="people.url"></span><br/>
 					</div>
 				</li>
 			</ul>

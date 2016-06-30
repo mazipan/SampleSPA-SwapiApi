@@ -8,14 +8,14 @@
 				<li ng-repeat="species in allSpecies[i].results track by species.url" class="border-top-black">
 					<i class="fa fa-paw title-panel"></i> &nbsp;&nbsp;<span class="title-panel" ng-bind="species.name"></span><br/>
 					<div class="pane-detail">
-						<span ng-bind="'Classification : ' + species.classification"></span><br/>
-						<span ng-bind="'Designation : ' + species.designation"></span><br/>
-						<span ng-bind="'Average Height : ' + species.average_height"></span><br/>
-						<span ng-bind="'Skin Colors : ' + species.skin_colors"></span><br/>
-						<span ng-bind="'Hair Colors : ' + species.hair_colors"></span><br/>
-						<span ng-bind="'Eye Colors : ' + species.eye_colors"></span><br/>
-						<span ng-bind="'Average Lifespan : ' + species.average_lifespan"></span><br/>
-						<span ng-bind="'URL Api : ' + species.url"></span><br/>
+						<strong>Classification : </strong><span ng-bind="species.classification"></span><br/>
+						<strong>Designation : </strong><span ng-bind="species.designation"></span><br/>
+						<strong>Average Height : </strong><span ng-bind="species.average_height"></span><br/>
+						<strong>Skin Colors : </strong><span ng-bind="species.skin_colors"></span><br/>
+						<strong>Hair Colors : </strong><span ng-bind="species.hair_colors"></span><br/>
+						<strong>Eye Colors : </strong><span ng-bind="species.eye_colors"></span><br/>
+						<strong>Average Lifespan : </strong><span ng-bind="species.average_lifespan"></span><br/>
+						<strong>URL Api : </strong><span ng-bind="species.url"></span><br/>
 					</div>
 				</li>
 			</ul>

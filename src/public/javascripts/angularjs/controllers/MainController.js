@@ -39,7 +39,20 @@ function mainCtrl($scope, $q, mainService, objectShareService){
                         var childScope=angular.element('#film').scope();
                         childScope.nextFilmPage();
                     }else if(tab === "people"){
-
+                        var childScope=angular.element('#people').scope();
+                        childScope.nextPeoplePage();
+                    }else if(tab === "planet"){
+                        var childScope=angular.element('#planet').scope();
+                        childScope.nextPlanetPage();
+                    }else if(tab === "spaceship"){
+                        var childScope=angular.element('#spaceship').scope();
+                        childScope.nextSpaceshipPage();
+                    }else if(tab === "species"){
+                        var childScope=angular.element('#species').scope();
+                        childScope.nextSpeciesPage();
+                    }else if(tab === "vehicle"){
+                        var childScope=angular.element('#vehicle').scope();
+                        childScope.nextVehiclePage();
                     }
                 }
             }

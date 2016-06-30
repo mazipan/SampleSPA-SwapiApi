@@ -8,15 +8,15 @@
 				<li ng-repeat="spaceship in allSpaceships[i].results track by spaceship.url" class="border-top-red">
 					<i class="fa fa-space-shuttle title-panel"></i> &nbsp;&nbsp;<span class="title-panel" ng-bind="spaceship.name"></span><br/>
 					<div class="pane-detail">
-						<span ng-bind="'Model : ' + spaceship.model"></span><br/>
-						<span ng-bind="'Manufacturer : ' + spaceship.manufacturer"></span><br/>
-						<span ng-bind="'Class : ' + spaceship.starship_class"></span><br/>
-						<span ng-bind="'Crew : ' + spaceship.crew"></span><br/>
-						<span ng-bind="'Passengers : ' + spaceship.passengers"></span><br/>
-						<span ng-bind="'Cargo Capacity : ' + spaceship.cargo_capacity"></span><br/>
-						<span ng-bind="'Cost in Credits : ' + spaceship.cost_in_credits"></span><br/>
-						<span ng-bind="'Max Atmosphering Speed : ' + spaceship.max_atmosphering_speed"></span><br/>
-						<span ng-bind="'URL Api : ' + spaceship.url"></span><br/>
+						<strong>Model : </strong><span ng-bind="spaceship.model"></span><br/>
+						<strong>Manufacturer : </strong><span ng-bind="spaceship.manufacturer"></span><br/>
+						<strong>Class : </strong><span ng-bind="spaceship.starship_class"></span><br/>
+						<strong>Crew : </strong><span ng-bind="spaceship.crew"></span><br/>
+						<strong>Passengers : </strong><span ng-bind="spaceship.passengers"></span><br/>
+						<strong>Cargo Capacity : </strong><span ng-bind="spaceship.cargo_capacity"></span><br/>
+						<strong>Cost in Credits : </strong><span ng-bind="spaceship.cost_in_credits"></span><br/>
+						<strong>Max Atmosphering Speed : </strong><span ng-bind="spaceship.max_atmosphering_speed"></span><br/>
+						<strong>URL Api : </strong><span ng-bind="spaceship.url"></span><br/>
 					</div>
 				</li>
 			</ul>
