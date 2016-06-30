@@ -2,7 +2,23 @@
 	<div class="col-md-12">
 		<h2 class="page-title">People </h2>
 	</div>
-	<div class="col-md-12">
-		{{ message }}
+	<div class="col-md-12 box-list">
+		<div ng-repeat="i in pageArray track by $index" id="people-page-{{i}}">
+			<ul ng-if="allPeople[i].results">
+				<li ng-repeat="people in allPeople[i].results track by people.url" class="border-top-purple">
+					<i class="fa fa-users title-panel"></i> &nbsp;&nbsp;<span class="title-panel" ng-bind="people.name"></span><br/>
+					<div class="pane-detail">
+						<span ng-bind="'Gender : ' + people.gender"></span><br/>
+						<span ng-bind="'Birth Year : ' + people.birth_year"></span><br/>
+						<span ng-bind="'Height : ' + people.height"></span><br/>
+						<span ng-bind="'Mass : ' + people.mass"></span><br/>
+						<span ng-bind="'Hair Color : ' + people.hair_color"></span><br/>
+						<span ng-bind="'Skin Color : ' + people.skin_color"></span><br/>
+						<span ng-bind="'Eye Color : ' + people.eye_color"></span><br/>
+						<span ng-bind="'URL Api : ' + people.url"></span><br/>
+					</div>
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>

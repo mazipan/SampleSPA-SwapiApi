@@ -1,4 +1,11 @@
  $(document).ready(function () {
+
+	 $('.menu-btn').click(function () {
+		 $('nav.ts-sidebar').toggleClass('menu-open');
+	 });
+	 $(".ts-sidebar-menu li").click(function (e) {
+		 $('nav.ts-sidebar').toggleClass('menu-open');
+	 });
 	/*
 	 var removeAllOpen = function removeAllActiveTab(){
 		 $(".ts-sidebar-menu li").each(function () {

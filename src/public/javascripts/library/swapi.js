@@ -76,3 +76,33 @@ var swapiModule = function () {
   };
 
 }();
+
+/*
+*
+ getResources - Returns a list of all available resources. Not really useful for this library.
+ getPerson(id) - Returns one person.
+ getPeople([page]) - Returns everyone, paged. Defaults to page 1.
+ getFilm(id) - Returns one film.
+ getFilms([page]) - Returns all films, paged. Defaults to page 1.
+ getPlanet(id) - Returns a planet.
+ getPlanets([page]) - Returns all plaents, paged. Defaults to page 1.
+ getSpecies(id) - Returns one species.
+ getAllSpecies([page]) - Returns all species, paged. Defaults to page 1.
+ getStarship(id) - Returns a starship.
+ getStarships([page]) - Returns all starships, paged. Defaults to page 1.
+ getVehicle(id) - Returns a vehicle.
+ getVehicles([page]) - Returns all vehicles, paged. Defaults to page 1.
+
+ swapiModule.getVehicles(function(data) {
+ console.log("Result of getVehicles", data);
+ });
+ //get all vehicles, page 2
+ swapiModule.getVehicles(2, function(data) {
+ console.log("Result of getVehicles (page 2)", data);
+ });
+
+ //get one vehicle (assumes 4 works)
+ swapiModule.getVehicle(4,function(data) {
+ console.log("Result of getVehicle/4", data);
+ });
+*/

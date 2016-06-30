@@ -2,7 +2,24 @@
     <div class="col-md-12">
         <h2 class="page-title">Vehicle </h2>
     </div>
-    <div class="col-md-12">
-        {{ message }}
-    </div>
+    <div class="col-md-12 box-list">
+		<div ng-repeat="i in pageArray track by $index" id="vehicle-page-{{i}}">
+			<ul ng-if="allVehicles[i].results">
+				<li ng-repeat="vehicle in allVehicles[i].results track by vehicle.url" class="border-top-blue-light">
+					<i class="fa fa-car title-panel"></i> &nbsp;&nbsp;<span class="title-panel" ng-bind="vehicle.name"></span><br/>
+					<div class="pane-detail">
+						<span ng-bind="'Model : ' + vehicle.model"></span><br/>
+						<span ng-bind="'Manufacturer : ' + vehicle.manufacturer"></span><br/>
+						<span ng-bind="'Class : ' + vehicle.vehicle_class"></span><br/>
+						<span ng-bind="'Crew : ' + vehicle.crew"></span><br/>
+						<span ng-bind="'Passengers : ' + vehicle.passengers"></span><br/>
+						<span ng-bind="'Cargo Capacity : ' + vehicle.cargo_capacity"></span><br/>
+						<span ng-bind="'Cost in Credits : ' + vehicle.cost_in_credits"></span><br/>
+						<span ng-bind="'Max Atmosphering Speed : ' + vehicle.max_atmosphering_speed"></span><br/>
+						<span ng-bind="'URL Api : ' + vehicle.url"></span><br/>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
 </div>

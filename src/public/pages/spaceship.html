@@ -2,7 +2,24 @@
 	<div class="col-md-12">
 		<h2 class="page-title">Spaceship </h2>
 	</div>
-	<div class="col-md-12">
-		{{ message }}
+	<div class="col-md-12 box-list">
+		<div ng-repeat="i in pageArray track by $index" id="spaceship-page-{{i}}">
+			<ul ng-if="allSpaceships[i].results">
+				<li ng-repeat="spaceship in allSpaceships[i].results track by spaceship.url" class="border-top-red">
+					<i class="fa fa-space-shuttle title-panel"></i> &nbsp;&nbsp;<span class="title-panel" ng-bind="spaceship.name"></span><br/>
+					<div class="pane-detail">
+						<span ng-bind="'Model : ' + spaceship.model"></span><br/>
+						<span ng-bind="'Manufacturer : ' + spaceship.manufacturer"></span><br/>
+						<span ng-bind="'Class : ' + spaceship.starship_class"></span><br/>
+						<span ng-bind="'Crew : ' + spaceship.crew"></span><br/>
+						<span ng-bind="'Passengers : ' + spaceship.passengers"></span><br/>
+						<span ng-bind="'Cargo Capacity : ' + spaceship.cargo_capacity"></span><br/>
+						<span ng-bind="'Cost in Credits : ' + spaceship.cost_in_credits"></span><br/>
+						<span ng-bind="'Max Atmosphering Speed : ' + spaceship.max_atmosphering_speed"></span><br/>
+						<span ng-bind="'URL Api : ' + spaceship.url"></span><br/>
+					</div>
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>

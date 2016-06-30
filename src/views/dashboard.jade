@@ -1,70 +1,40 @@
 doctype html
 html(lang="en")
 head
-	meta(charset="UTF-8")
-	meta(http-equiv="X-UA-Compatible" content="IE=edge")
-	meta(name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1")
-	meta(name="description" content="#{title}")
-	meta(name="author" content="irfan.maulana")
-	base(href="/")
-	title= title
+    include metatag
+    base(href="/dashboard")
 
-	link(rel="stylesheet" href="/stylesheets/font-awesome.min.css")
-	link(rel="stylesheet" href="/stylesheets/bootstrap.min.css")
-	link(rel="stylesheet" href="/stylesheets/harmony.css")
+    link(rel="stylesheet" href="/stylesheets/font-awesome.min.css")
+    link(rel="stylesheet" href="/stylesheets/bootstrap.min.css")
+    link(rel="stylesheet" href="/stylesheets/harmony.css")
 body(ng-app="AngularApplication" ng-controller="main.ctrl")
 
-	div(class="brand clearfix")
-		a(href="index.html" class="logo")
-			img(src="images/logo.png" class="img-responsive" alt="")
-		span(class="menu-btn")
-			i(class="fa fa-bars")
-		ul(class="ts-profile-nav")
-			li
-				a(href="#") Help
-			li(class="ts-account")
-				a(href="#")
-					img(src="images/ts-avatar.jpg" class="ts-avatar hidden-side" alt="")
-					span Account
-						i(class="fa fa-angle-down hidden-side")
-				ul
-					li
-						a(href="./login") Logout
+    div(class="angular-loading" ng-show="isLoading")
+        div(class="loading-wrapper")
+            img(src="#{root}/images/ajax-loading.gif" alt="")
 
-	div(class="ts-main-content")
-		nav(class="ts-sidebar")
-			ul(class="ts-sidebar-menu")
-				li(class="ts-label") Main Menu
-				li(ng-class="{'open' : !tabActive || tabActive === 'film'}")
-					a(href="#film" data-target="film")
-						i(class="fa fa-film") &nbsp;&nbsp; Film
-				li(ng-class="{'open' : tabActive && tabActive === 'people'}")
-					a(href="#people" data-target="people")
-						i(class="fa fa-users") &nbsp;&nbsp; People
-				li(ng-class="{'open' : tabActive && tabActive === 'planet'}")
-					a(href="#planet" data-target="planet")
-						i(class="fa fa-globe") &nbsp;&nbsp; Planet
-				li(ng-class="{'open' : tabActive && tabActive === 'spaceship'}")
-					a(href="#spaceship" data-target="spaceship")
-						i(class="fa fa-space-shuttle") &nbsp;&nbsp; Spaceship
-				li(ng-class="{'open' : tabActive && tabActive === 'species'}")
-					a(href="#species" data-target="species")
-						i(class="fa fa-dashboard") &nbsp;&nbsp; Species
-				li(ng-class="{'open' : tabActive && tabActive === 'vehicle'}")
-					a(href="#vehicle" data-target="vehicle")
-						i(class="fa fa-car") &nbsp;&nbsp; Vehicle
+    div(class="brand clearfix")
+        a(href="./" class="logo")
+            img(src="images/logo.png" class="img-responsive" alt="")
+        span(class="menu-btn")
+            i(class="fa fa-bars")
+        ul(class="ts-profile-nav")
+            li(class="ts-account")
+                a(href="#")
+                    img(src="images/ts-avatar.jpg" class="ts-avatar hidden-side" alt="")
+                    span Account
+                        i(class="fa fa-angle-down hidden-side")
+                ul
+                    li
+                        a(href="./") Logout
 
-		div(class="content-wrapper")
-			div(class="container-fluid")
-				ng-view
+    div(class="ts-main-content")
+        include dashboard-tab
 
+        div(class="content-wrapper")
+            div(class="container-fluid")
+                ng-view
 
-// include dashboard-film
-// include dashboard-people
-// include dashboard-planet
-// include dashboard-spaceship
-// include dashboard-species
-// include dashboard-vehicle
 
 script const ROOT_URL = "#{root}";
 script(src="/javascripts/library/jquery-1.11.0.min.js")
@@ -92,12 +62,11 @@ script(src="/javascripts/angularjs/services/ObjectShareService.js")
 
 // script(src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js")
 // script.
-	// Initialize Firebase
-	var config = {
-		apiKey: "AIzaSyDZCwBvUC0FPiuOuykcJJ-ua-ybGf0ETKQ",
-		authDomain: "samplespa-swapiapi.firebaseapp.com",
-		databaseURL: "https://samplespa-swapiapi.firebaseio.com",
-		storageBucket: ""
-	};
-	firebase.initializeApp(config);
-	
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDZCwBvUC0FPiuOuykcJJ-ua-ybGf0ETKQ",
+        authDomain: "samplespa-swapiapi.firebaseapp.com",
+        databaseURL: "https://samplespa-swapiapi.firebaseio.com",
+        storageBucket: ""
+    };
+    firebase.initializeApp(config);

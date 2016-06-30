@@ -1,0 +1,21 @@
+nav(class="ts-sidebar")
+    ul(class="ts-sidebar-menu")
+        li(class="ts-label") Main Menu
+        li(ng-class="{'open' : !tabActive || tabActive === 'film'}")
+            a(href="#film" data-target="film")
+                i(class="fa fa-film") &nbsp;&nbsp; Film
+        li(ng-class="{'open' : tabActive && tabActive === 'people'}")
+            a(href="#people" data-target="people")
+                i(class="fa fa-users") &nbsp;&nbsp; People
+        li(ng-class="{'open' : tabActive && tabActive === 'planet'}")
+            a(href="#planet" data-target="planet")
+                i(class="fa fa-globe") &nbsp;&nbsp; Planet
+        li(ng-class="{'open' : tabActive && tabActive === 'spaceship'}")
+            a(href="#spaceship" data-target="spaceship")
+                i(class="fa fa-space-shuttle") &nbsp;&nbsp; Spaceship
+        li(ng-class="{'open' : tabActive && tabActive === 'species'}")
+            a(href="#species" data-target="species")
+                i(class="fa fa-paw") &nbsp;&nbsp; Species
+        li(ng-class="{'open' : tabActive && tabActive === 'vehicle'}")
+            a(href="#vehicle" data-target="vehicle")
+                i(class="fa fa-car") &nbsp;&nbsp; Vehicle

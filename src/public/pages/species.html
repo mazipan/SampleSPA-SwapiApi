@@ -2,7 +2,23 @@
 	<div class="col-md-12">
 		<h2 class="page-title">Species </h2>
 	</div>
-	<div class="col-md-12">
-		{{ message }}
+	<div class="col-md-12 box-list">
+		<div ng-repeat="i in pageArray track by $index" id="species-page-{{i}}">
+			<ul ng-if="allSpecies[i].results">
+				<li ng-repeat="species in allSpecies[i].results track by species.url" class="border-top-black">
+					<i class="fa fa-paw title-panel"></i> &nbsp;&nbsp;<span class="title-panel" ng-bind="species.name"></span><br/>
+					<div class="pane-detail">
+						<span ng-bind="'Classification : ' + species.classification"></span><br/>
+						<span ng-bind="'Designation : ' + species.designation"></span><br/>
+						<span ng-bind="'Average Height : ' + species.average_height"></span><br/>
+						<span ng-bind="'Skin Colors : ' + species.skin_colors"></span><br/>
+						<span ng-bind="'Hair Colors : ' + species.hair_colors"></span><br/>
+						<span ng-bind="'Eye Colors : ' + species.eye_colors"></span><br/>
+						<span ng-bind="'Average Lifespan : ' + species.average_lifespan"></span><br/>
+						<span ng-bind="'URL Api : ' + species.url"></span><br/>
+					</div>
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>

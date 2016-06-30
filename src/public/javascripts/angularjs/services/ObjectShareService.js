@@ -10,9 +10,9 @@
 var objectSharingModuleService = angular.module('object-share-module.service', []);
 
 objectSharingModuleService
-    .factory('objectShareService', [function objectShareServiceFunc(){
-
+    .factory('objectShareService', ['$rootScope', function objectShareServiceFunc($rootScope){
         var tabActive = "";
+        var isLoading = false;
         var obj = {
             setTabActive :  function setTabActive(tabName){
                 if(tabName){
@@ -21,6 +21,14 @@ objectSharingModuleService
             },
             getTabActive : function getTabActive(){
                 return tabActive;
+            },
+            setLoader :  function setLoader(OnOrOff){
+                if(typeof OnOrOff !== 'undefined'){
+                    isLoading = OnOrOff;
+                }
+            },
+            getLoader : function getLoader(){
+                return isLoading;
             }
         };
 
