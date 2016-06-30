@@ -16,30 +16,60 @@ mainConfig.config(['$routeProvider', '$locationProvider',
                 controller: 'film.ctrl',
                 controllerAs: 'film.ctrl'
             }).
+            when('/film/:id', {
+                templateUrl: '/pages/film-detail.html',
+                controller: 'film-detail.ctrl',
+                controllerAs: 'film-detail.ctrl'
+            }).
             when('/people', {
                 templateUrl: '/pages/people.html',
                 controller: 'people.ctrl',
                 controllerAs: 'people.ctrl'
+            }).
+            when('/people/:id', {
+                templateUrl: '/pages/people-detail.html',
+                controller: 'people-detail.ctrl',
+                controllerAs: 'people-detail.ctrl'
             }).
             when('/planet', {
                 templateUrl: '/pages/planet.html',
                 controller: 'planet.ctrl',
                 controllerAs: 'planet.ctrl'
             }).
+            when('/planet/:id', {
+                templateUrl: '/pages/planet-detail.html',
+                controller: 'planet-detail.ctrl',
+                controllerAs: 'planet-detail.ctrl'
+            }).
             when('/spaceship', {
                 templateUrl: '/pages/spaceship.html',
                 controller: 'spaceship.ctrl',
                 controllerAs: 'spaceship.ctrl'
+            }).
+            when('/spaceship/:id', {
+                templateUrl: '/pages/spaceship-detail.html',
+                controller: 'spaceship-detail.ctrl',
+                controllerAs: 'spaceship-detail.ctrl'
             }).
             when('/species', {
                 templateUrl: '/pages/species.html',
                 controller: 'species.ctrl',
                 controllerAs: 'species.ctrl'
             }).
+            when('/film/:id', {
+                templateUrl: '/pages/species-detail.html',
+                controller: 'species-detail.ctrl',
+                controllerAs: 'species-detail.ctrl'
+            }).
             when('/vehicle', {
                 templateUrl: '/pages/vehicle.html',
                 controller: 'vehicle.ctrl',
                 controllerAs: 'vehicle.ctrl'
+            }).
+            when('/vehicle/:id', {
+                templateUrl: '/pages/vehicle-detail.html',
+                controller: 'vehicle-detail.ctrl',
+                controllerAs: 'vehicle-detail.ctrl'
             }).
             otherwise({
                 redirectTo: 'film'

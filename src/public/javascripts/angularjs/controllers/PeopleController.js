@@ -6,6 +6,23 @@ var peopleModule = angular.module('people-module.controller', []);
 peopleModule.controller('people.ctrl',
         ['$scope', '$q', 'peopleService', 'objectShareService', 'storageService', peopleCtrl
     ]);
+peopleModule.controller('people-detail.ctrl',
+    ['$scope', '$routeParams', 'peopleDetailService', 'objectShareService', 'storageService', peopleDetailCtrl
+    ]);
+
+function peopleDetailCtrl($scope, $routeParams, peopleDetailService, objectShareService, storageService){
+    $scope.id = $routeParams.id;
+
+    peopleDetailService.getPersonById({
+        id: $scope.id
+    })
+    .$promise
+    .then(function (response) {
+        objectShareService.setLoader(false);
+        objectShareService.getLoader();
+        $scope.people = response;
+    });
+}
 
 function peopleCtrl($scope, $q, peopleService, objectShareService, storageService){
     objectShareService.setTabActive("people");
@@ -52,7 +69,7 @@ function peopleCtrl($scope, $q, peopleService, objectShareService, storageServic
             if(page.length === 2){
                 page = page[1];
                 $scope.getDatas(page);
-                var offset = $("#film-page-"+page).offset();
+                var offset = $("#people-page-"+page).offset();
                 if(offset){
                     $('html, body').animate({
                         scrollTop: offset.top
@@ -80,8 +97,6 @@ function peopleCtrl($scope, $q, peopleService, objectShareService, storageServic
 
             if(!$scope.stillProcess){
                 $scope.stillProcess = true;
-                $scope.currentPage = page;
-                $scope.pageArray = $scope.getNumber(page);
                 peopleService.getPeople({
                     page: page
                 })
@@ -92,8 +107,11 @@ function peopleCtrl($scope, $q, peopleService, objectShareService, storageServic
                         objectShareService.getLoader();
 
                         if(response){
+                            $scope.currentPage = page;
+                            $scope.pageArray = $scope.getNumber(page);
                             $scope.allPeople[page] = response;
                             $scope.people = $scope.allPeople[page];
+                            $scope.setIdOfPeople($scope.allPeople);
                             var encrypted =
                                 storageService.encryptData(
                                     JSON.stringify($scope.allPeople), keyEncryption
@@ -107,8 +125,26 @@ function peopleCtrl($scope, $q, peopleService, objectShareService, storageServic
             $scope.people = $scope.allPeople[page];
             $scope.currentPage = page;
             $scope.pageArray = $scope.getNumber(page);
+            $scope.setIdOfPeople($scope.allPeople);
         }
 
+    };
+
+    $scope.setIdOfPeople = function setIdOfPeople(allPeople){
+        for(var i=0; i<$scope.pageArray.length; i++){
+            var index = $scope.pageArray[i];
+            var peoples = allPeople[index];
+            if(peoples && peoples.results){
+                for(var j=0; j<peoples.results.length; j++){
+                    var people = peoples.results[j];
+                    if(people.url){
+                        var splits = people.url.split("/");
+                        var id = splits[splits.length-2];
+                        people.id = id;
+                    }
+                }
+            }
+        }
     };
 
     // init with page 1

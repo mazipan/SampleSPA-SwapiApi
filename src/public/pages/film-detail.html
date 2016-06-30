@@ -1,0 +1,17 @@
+<div class="row" id="film-detail">
+	<div class="col-md-12">
+		<h2 class="page-title">Film Detail</h2>
+	</div>
+	<div class="col-md-12 box-list">
+		<i class="fa fa-film title-panel"></i> &nbsp;&nbsp;<span class="title-panel" ng-bind="film.title"></span><br/>
+		<div class="pane-detail">
+			<strong>Director : </strong><span ng-bind="film.director"></span><br/>
+			<strong>Producer : </strong><span ng-bind="film.producer"></span><br/>
+			<strong>Release Date : </strong><span ng-bind="film.release_date"></span><br/>
+			<strong>Opening Crawl : </strong><span ng-bind="film.opening_crawl"></span><br/>
+			<strong>URL Api : </strong><span ng-bind="film.url"></span><br/>
+		</div>
+		<br/>
+		<a class="btn btn-large btn-info" ng-href="#film">Kembali</a>
+	</div>
+</div>

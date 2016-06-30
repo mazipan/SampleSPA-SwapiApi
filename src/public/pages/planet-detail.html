@@ -1,0 +1,20 @@
+<div class="row" id="planet-detail">
+	<div class="col-md-12">
+		<h2 class="page-title">Planet Detail</h2>
+	</div>
+	<div class="col-md-12 box-list">
+		<i class="fa fa-globe title-panel"></i> &nbsp;&nbsp;<span class="title-panel" ng-bind="planet.name"></span><br/>
+		<div class="pane-detail">
+			<strong>Diameter : </strong><span ng-bind="planet.diameter"></span><br/>
+			<strong>Climate : </strong><span ng-bind="planet.climate"></span><br/>
+			<strong>Gravity : </strong><span ng-bind="planet.gravity"></span><br/>
+			<strong>Terrain : </strong><span ng-bind="planet.terrain"></span><br/>
+			<strong>Rotation Period : </strong><span ng-bind="planet.rotation_period"></span><br/>
+			<strong>Orbital Period : </strong><span ng-bind="planet.orbital_period"></span><br/>
+			<strong>Population : </strong><span ng-bind="planet.population"></span><br/>
+			<strong>URL Api : </strong><span ng-bind="planet.url"></span><br/>
+		</div>
+		<br/>
+		<a class="btn btn-large btn-info" ng-href="#planet">Kembali</a>
+	</div>
+</div>

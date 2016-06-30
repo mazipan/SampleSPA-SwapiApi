@@ -6,6 +6,22 @@ var speciesModule = angular.module('species-module.controller', []);
 speciesModule.controller('species.ctrl',
         ['$scope', '$q', 'speciesService', 'objectShareService', 'storageService', speciesCtrl
     ]);
+speciesModule.controller('species-detail.ctrl',
+    ['$scope', '$routeParams', 'speciesDetailService', 'objectShareService', 'storageService', speciesDetailCtrl
+    ]);
+
+function speciesDetailCtrl($scope, $routeParams, speciesDetailService, objectShareService, storageService){
+    $scope.id = $routeParams.id;
+    speciesDetailService.getSpeciesById({
+        id: $scope.id
+    })
+    .$promise
+    .then(function (response) {
+        objectShareService.setLoader(false);
+        objectShareService.getLoader();
+        $scope.species = response;
+    });
+}
 
 function speciesCtrl($scope, $q, speciesService, objectShareService, storageService){
 
@@ -81,8 +97,6 @@ function speciesCtrl($scope, $q, speciesService, objectShareService, storageServ
 
             if(!$scope.stillProcess){
                 $scope.stillProcess = true;
-                $scope.currentPage = page;
-                $scope.pageArray = $scope.getNumber(page);
                 speciesService.getSpecies({
                     page: page
                 })
@@ -93,8 +107,11 @@ function speciesCtrl($scope, $q, speciesService, objectShareService, storageServ
                         objectShareService.getLoader();
 
                         if(response){
+                            $scope.currentPage = page;
+                            $scope.pageArray = $scope.getNumber(page);
                             $scope.allSpecies[page] = response;
                             $scope.species = $scope.allSpecies[page];
+                            $scope.setIdOfSpecies($scope.allSpecies);
                             var encrypted =
                                 storageService.encryptData(
                                     JSON.stringify($scope.allSpecies), keyEncryption
@@ -108,8 +125,26 @@ function speciesCtrl($scope, $q, speciesService, objectShareService, storageServ
             $scope.species = $scope.allSpecies[page];
             $scope.currentPage = page;
             $scope.pageArray = $scope.getNumber(page);
+            $scope.setIdOfSpecies($scope.allSpecies);
         }
 
+    };
+
+    $scope.setIdOfSpecies = function setIdOfSpecies(allSpecies){
+        for(var i=0; i<$scope.pageArray.length; i++){
+            var index = $scope.pageArray[i];
+            var speciess = allSpecies[index];
+            if(speciess && speciess.results){
+                for(var j=0; j<speciess.results.length; j++){
+                    var species = speciess.results[j];
+                    if(species.url){
+                        var splits = species.url.split("/");
+                        var id = splits[splits.length-2];
+                        species.id = id;
+                    }
+                }
+            }
+        }
     };
 
     // init with page 1

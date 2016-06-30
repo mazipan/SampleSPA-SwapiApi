@@ -4,10 +4,27 @@
 'use strict';
 var filmModule = angular.module('film-module.controller', []);
 filmModule.controller('film.ctrl',
-        ['$scope', '$q', 'filmService', 'objectShareService', 'storageService', filmCtrl
+        ['$scope', 'filmService', 'objectShareService', 'storageService', filmCtrl
+    ]);
+filmModule.controller('film-detail.ctrl',
+    ['$scope', '$routeParams', 'filmDetailService', 'objectShareService', 'storageService', filmDetailCtrl
     ]);
 
-function filmCtrl($scope, $q, filmService, objectShareService, storageService){
+function filmDetailCtrl($scope, $routeParams, filmDetailService, objectShareService, storageService){
+    $scope.id = $routeParams.id;
+
+    filmDetailService.getFilmById({
+        id: $scope.id
+    })
+    .$promise
+    .then(function (response) {
+        objectShareService.setLoader(false);
+        objectShareService.getLoader();
+        $scope.film = response;
+    });
+}
+
+function filmCtrl($scope, filmService, objectShareService, storageService){
 
     objectShareService.setTabActive("film");
     $scope.tabActive = objectShareService.getTabActive();
@@ -81,8 +98,7 @@ function filmCtrl($scope, $q, filmService, objectShareService, storageService){
 
             if(!$scope.stillProcess){
                 $scope.stillProcess = true;
-                $scope.currentPage = page;
-                $scope.pageArray = $scope.getNumber(page);
+
                 filmService.getFilms({
                     page: page
                 })
@@ -93,8 +109,11 @@ function filmCtrl($scope, $q, filmService, objectShareService, storageService){
                         objectShareService.getLoader();
 
                         if(response){
+                            $scope.currentPage = page;
+                            $scope.pageArray = $scope.getNumber(page);
                             $scope.allFilms[page] = response;
                             $scope.films = $scope.allFilms[page];
+                            $scope.setIdOfFilm($scope.allFilms);
                             var encrypted =
                                 storageService.encryptData(
                                     JSON.stringify($scope.allFilms), keyEncryption
@@ -108,8 +127,26 @@ function filmCtrl($scope, $q, filmService, objectShareService, storageService){
             $scope.films = $scope.allFilms[page];
             $scope.currentPage = page;
             $scope.pageArray = $scope.getNumber(page);
+            $scope.setIdOfFilm($scope.allFilms);
         }
 
+    };
+
+    $scope.setIdOfFilm = function setIdOfFilm(allFilms){
+        for(var i=0; i<$scope.pageArray.length; i++){
+            var index = $scope.pageArray[i];
+            var films = allFilms[index];
+            if(films && films.results){
+                for(var j=0; j<films.results.length; j++){
+                    var film = films.results[j];
+                    if(film.url){
+                        var splits = film.url.split("/");
+                        var id = splits[splits.length-2];
+                        film.id = id;
+                    }
+                }
+            }
+        }
     };
 
     // init with page 1

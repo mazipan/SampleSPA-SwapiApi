@@ -6,6 +6,22 @@ var spaceshipModule = angular.module('spaceship-module.controller', []);
 spaceshipModule.controller('spaceship.ctrl',
         ['$scope', '$q', 'spaceshipService', 'objectShareService', 'storageService', spaceshipCtrl
     ]);
+spaceshipModule.controller('spaceship-detail.ctrl',
+    ['$scope', '$routeParams', 'spaceshipDetailService', 'objectShareService', 'storageService', spaceshipDetailCtrl
+    ]);
+
+function spaceshipDetailCtrl($scope, $routeParams, spaceshipDetailService, objectShareService, storageService){
+    $scope.id = $routeParams.id;
+    spaceshipDetailService.getSpaceshipById({
+        id: $scope.id
+    })
+    .$promise
+    .then(function (response) {
+        objectShareService.setLoader(false);
+        objectShareService.getLoader();
+        $scope.spaceship = response;
+    });
+}
 
 function spaceshipCtrl($scope, $q, spaceshipService, objectShareService, storageService){
     objectShareService.setTabActive("spaceship");
@@ -80,8 +96,6 @@ function spaceshipCtrl($scope, $q, spaceshipService, objectShareService, storage
 
             if(!$scope.stillProcess){
                 $scope.stillProcess = true;
-                $scope.currentPage = page;
-                $scope.pageArray = $scope.getNumber(page);
                 spaceshipService.getSpaceships({
                     page: page
                 })
@@ -92,8 +106,11 @@ function spaceshipCtrl($scope, $q, spaceshipService, objectShareService, storage
                         objectShareService.getLoader();
 
                         if(response){
+                            $scope.currentPage = page;
+                            $scope.pageArray = $scope.getNumber(page);
                             $scope.allSpaceships[page] = response;
                             $scope.spaceship = $scope.allSpaceships[page];
+                            $scope.setIdOfSpaceship($scope.allSpaceships);
                             var encrypted =
                                 storageService.encryptData(
                                     JSON.stringify($scope.allSpaceships), keyEncryption
@@ -107,8 +124,26 @@ function spaceshipCtrl($scope, $q, spaceshipService, objectShareService, storage
             $scope.spaceship = $scope.allSpaceships[page];
             $scope.currentPage = page;
             $scope.pageArray = $scope.getNumber(page);
+            $scope.setIdOfSpaceship($scope.allSpaceships); 
         }
 
+    };
+
+    $scope.setIdOfSpaceship = function setIdOfSpaceship(allSpaceships){
+        for(var i=0; i<$scope.pageArray.length; i++){
+            var index = $scope.pageArray[i];
+            var spaceships = allSpaceships[index];
+            if(spaceships && spaceships.results){
+                for(var j=0; j<spaceships.results.length; j++){
+                    var spaceship = spaceships.results[j];
+                    if(spaceship.url){
+                        var splits = spaceship.url.split("/");
+                        var id = splits[splits.length-2];
+                        spaceship.id = id;
+                    }
+                }
+            }
+        }
     };
 
     // init with page 1

@@ -37,7 +37,7 @@ function filmServiceFunc($resource) {
 }
 
 function filmDetailServiceFunc($resource) {
-    return $resource('http://swapi.co/api/films/:id', {}, {
+    return $resource('http://swapi.co/api/films/:id/.:root', {}, {
         'getFilmById': {
             method: 'GET',
             params: {
@@ -60,7 +60,7 @@ function peopleServiceFunc($resource) {
 }
 
 function peopleDetailServiceFunc($resource) {
-    return $resource('http://swapi.co/api/people/:id', {}, {
+    return $resource('http://swapi.co/api/people/:id/.:root', {}, {
         'getPersonById': {
             method: 'GET',
             params: {
@@ -83,7 +83,7 @@ function spaceshipServiceFunc($resource) {
 }
 
 function spaceshipDetailServiceFunc($resource) {
-    return $resource('http://swapi.co/api/starships/:id', {}, {
+    return $resource('http://swapi.co/api/starships/:id/.:root', {}, {
         'getSpaceshipById': {
             method: 'GET',
             params: {
@@ -106,7 +106,7 @@ function speciesServiceFunc($resource) {
 }
 
 function speciesDetailServiceFunc($resource) {
-    return $resource('http://swapi.co/api/species/:id', {}, {
+    return $resource('http://swapi.co/api/species/:id/.:root', {}, {
         'getSpeciesById': {
             method: 'GET',
             params: {
@@ -129,7 +129,7 @@ function vehicleServiceFunc($resource) {
 }
 
 function vehicleDetailServiceFunc($resource) {
-    return $resource('http://swapi.co/api/vehicles/:id', {}, {
+    return $resource('http://swapi.co/api/vehicles/:id/.:root', {}, {
         'getVehicleById': {
             method: 'GET',
             params: {
@@ -152,7 +152,7 @@ function planetServiceFunc($resource) {
 }
 
 function planetDetailServiceFunc($resource) {
-    return $resource('http://swapi.co/api/planets/:id', {}, {
+    return $resource('http://swapi.co/api/planets/:id/.:root', {}, {
         'getPlanetById': {
             method: 'GET',
             params: {

@@ -6,6 +6,22 @@ var vehicleModule = angular.module('vehicle-module.controller', []);
 vehicleModule.controller('vehicle.ctrl',
         ['$scope', '$q', 'vehicleService', 'objectShareService', 'storageService', vehicleCtrl
     ]);
+vehicleModule.controller('vehicle-detail.ctrl',
+    ['$scope', '$routeParams', 'vehicleDetailService', 'objectShareService', 'storageService', vehicleDetailCtrl
+    ]);
+
+function vehicleDetailCtrl($scope, $routeParams, vehicleDetailService, objectShareService, storageService){
+    $scope.id = $routeParams.id;
+    vehicleDetailService.getVehicleById({
+        id: $scope.id
+    })
+    .$promise
+    .then(function (response) {
+        objectShareService.setLoader(false);
+        objectShareService.getLoader();
+        $scope.vehicle = response;
+    });
+}
 
 function vehicleCtrl($scope, $q, vehicleService, objectShareService, storageService){
 
@@ -81,8 +97,6 @@ function vehicleCtrl($scope, $q, vehicleService, objectShareService, storageServ
 
             if(!$scope.stillProcess){
                 $scope.stillProcess = true;
-                $scope.currentPage = page;
-                $scope.pageArray = $scope.getNumber(page);
                 vehicleService.getVehicles({
                     page: page
                 })
@@ -93,8 +107,11 @@ function vehicleCtrl($scope, $q, vehicleService, objectShareService, storageServ
                         objectShareService.getLoader();
 
                         if(response){
+                            $scope.currentPage = page;
+                            $scope.pageArray = $scope.getNumber(page);
                             $scope.allVehicles[page] = response;
                             $scope.vehicles = $scope.allVehicles[page];
+                            $scope.setIdOfVehicle($scope.allVehicles);
                             var encrypted =
                                 storageService.encryptData(
                                     JSON.stringify($scope.allVehicles), keyEncryption
@@ -108,8 +125,26 @@ function vehicleCtrl($scope, $q, vehicleService, objectShareService, storageServ
             $scope.vehicles = $scope.allVehicles[page];
             $scope.currentPage = page;
             $scope.pageArray = $scope.getNumber(page);
+            $scope.setIdOfVehicle($scope.allVehicles);
         }
 
+    };
+
+    $scope.setIdOfVehicle = function setIdOfVehicle(allVehicles){
+        for(var i=0; i<$scope.pageArray.length; i++){
+            var index = $scope.pageArray[i];
+            var vehicles = allVehicles[index];
+            if(vehicles && vehicles.results){
+                for(var j=0; j<vehicles.results.length; j++){
+                    var vehicle = vehicles.results[j];
+                    if(vehicle.url){
+                        var splits = vehicle.url.split("/");
+                        var id = splits[splits.length-2];
+                        vehicle.id = id;
+                    }
+                }
+            }
+        }
     };
 
     // init with page 1

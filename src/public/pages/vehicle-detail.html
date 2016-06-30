@@ -1,0 +1,21 @@
+<div class="row" id="vehicle-detail">
+    <div class="col-md-12">
+        <h2 class="page-title">Vehicle Detail</h2>
+    </div>
+    <div class="col-md-12 box-list">
+		<i class="fa fa-car title-panel"></i> &nbsp;&nbsp;<span class="title-panel" ng-bind="vehicle.name"></span><br/>
+		<div class="pane-detail">
+			<strong>Model : </strong><span ng-bind="vehicle.model"></span><br/>
+			<strong>Manufacturer : </strong><span ng-bind="vehicle.manufacturer"></span><br/>
+			<strong>Class : </strong><span ng-bind="vehicle.vehicle_class"></span><br/>
+			<strong>Crew : </strong><span ng-bind="vehicle.crew"></span><br/>
+			<strong>Passengers : </strong><span ng-bind="vehicle.passengers"></span><br/>
+			<strong>Cargo Capacity : </strong><span ng-bind="vehicle.cargo_capacity"></span><br/>
+			<strong>Cost in Credits : </strong><span ng-bind="vehicle.cost_in_credits"></span><br/>
+			<strong>Max Atmosphering Speed : </strong><span ng-bind="vehicle.max_atmosphering_speed"></span><br/>
+			<strong>URL Api : </strong><span ng-bind="vehicle.url"></span><br/>
+		</div>
+		<br/>
+		<a class="btn btn-large btn-info" ng-href="#vehicle">Kembali</a>
+	</div>
+</div>
