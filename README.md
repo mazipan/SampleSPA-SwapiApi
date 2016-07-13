@@ -15,6 +15,10 @@ Sample for creating SPA Page Using Swapi API http://swapi.co/</br>
 
 <br/>
 <h3>Installation :</h3>
+- Install grunt-cli, read : http://gruntjs.com/getting-started
+<pre>
+sudo npm install -g grunt-cli
+</pre>
 - Install depedency
 <pre>
 sudo npm install
@@ -27,7 +31,10 @@ grunt --verbose
 <pre>
 npm start
 </pre>
-
+- Open in Browser
+<pre>
+localhost:3000
+</pre>
 <br/>
 <h3>Folder Structure :</h3>
 - all code in <code>src</code> folder
@@ -37,6 +44,16 @@ npm start
 - all frontend code in folder <code>public</code>
 - folder <code>public/angularjs</code> is angularjs code
 - folder <code>public/pages</code> is angularjs view templating
+
+</br>
+<h3>Here you will learn about :</h3>
+- Create server route using ExpressJS, read more : https://expressjs.com/en/guide/routing.html
+- Using server side templating using Jade Templating, read more : http://jade-lang.com/tutorial/
+- Create SPA routing using AngularJS, read more : https://docs.angularjs.org/tutorial/step_07
+- Create AngularJS Services for wrapping all request to server using Angular Resources, read more : https://docs.angularjs.org/api/ngResource/service/$resource
+- How to sharing an object between controllers 
+- AngularJS Watch for watching some method calling
+- Using HTML5 storage API, read more : http://www.w3schools.com/html/html5_webstorage.asp
 
 </br>
 Hope will usefull for you all.</br>
