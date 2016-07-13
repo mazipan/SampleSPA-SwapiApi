@@ -35,6 +35,7 @@ npm start
 <pre>
 localhost:3000
 </pre>
+
 <br/>
 <h3>Folder Structure :</h3>
 - all code in <code>src</code> folder
@@ -45,7 +46,7 @@ localhost:3000
 - folder <code>public/angularjs</code> is angularjs code
 - folder <code>public/pages</code> is angularjs view templating
 
-</br>
+<br/>
 <h3>Here you will learn about :</h3>
 - Create server route using ExpressJS, read more : https://expressjs.com/en/guide/routing.html
 - Using server side templating using Jade Templating, read more : http://jade-lang.com/tutorial/
