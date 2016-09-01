@@ -1,11 +1,11 @@
 # SampleSPA-SwapiApi
 Sample for creating SPA Page Using Swapi API http://swapi.co/</br>
 
-<h3>Preview :</h3>
+<h3>Preview</h3>
 <img src="http://i1176.photobucket.com/albums/x322/mazipanneh/swapi-api-screenshoot_zpsvhxwadfo.png" alt="SPA Swapi API"/>
 </br>
 
-<h3>Using technology :</h3>
+<h3>Using technology</h3>
 - NodeJS and Expressjs for server routing
 - Jade for server templating
 - Angularjs framework
@@ -14,7 +14,7 @@ Sample for creating SPA Page Using Swapi API http://swapi.co/</br>
 - API from http://swapi.co/
 
 <br/>
-<h3>Installation :</h3>
+<h3>Installation</h3>
 - Install grunt-cli, read : http://gruntjs.com/getting-started
 <pre>
 sudo npm install -g grunt-cli
@@ -33,11 +33,11 @@ npm start
 </pre>
 - Open in Browser
 <pre>
-localhost:3000
+<a href="http://localhost:3000">http://localhost:3000</a>
 </pre>
 
 <br/>
-<h3>Folder Structure :</h3>
+<h3>Folder Structure</h3>
 - all code in <code>src</code> folder
 - <code>app.js</code> is main server js
 - folder <code>routes</code> is server side routing, provided by expressjs
@@ -47,7 +47,7 @@ localhost:3000
 - folder <code>public/pages</code> is angularjs view templating
 
 <br/>
-<h3>Here you will learn about :</h3>
+<h3>Here you will learn about</h3>
 - Create server route using ExpressJS, read more : https://expressjs.com/en/guide/routing.html
 - Using server side templating using Jade Templating, read more : http://jade-lang.com/tutorial/
 - Create SPA routing using AngularJS, read more : https://docs.angularjs.org/tutorial/step_07
