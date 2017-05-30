@@ -1,11 +1,10 @@
 # SampleSPA-SwapiApi
 Sample for creating SPA Page Using Swapi API http://swapi.co/</br>
 
-<h3>Preview</h3>
+## Preview
 <img src="http://i1176.photobucket.com/albums/x322/mazipanneh/swapi-api-screenshoot_zpsvhxwadfo.png" alt="SPA Swapi API"/>
-</br>
 
-<h3>Using technology</h3>
+## Using technology
 - NodeJS and Expressjs for server routing
 - Jade for server templating
 - Angularjs framework
@@ -13,8 +12,8 @@ Sample for creating SPA Page Using Swapi API http://swapi.co/</br>
 - Grunt for Task Runner
 - API from http://swapi.co/
 
-<br/>
-<h3>Installation</h3>
+
+## Installation
 - Install grunt-cli, read : http://gruntjs.com/getting-started
 <pre>
 sudo npm install -g grunt-cli
@@ -36,8 +35,7 @@ npm start
 <a href="http://localhost:3000">http://localhost:3000</a>
 </pre>
 
-<br/>
-<h3>Folder Structure</h3>
+## Folder Structure
 - all code in <code>src</code> folder
 - <code>app.js</code> is main server js
 - folder <code>routes</code> is server side routing, provided by expressjs
@@ -46,8 +44,8 @@ npm start
 - folder <code>public/angularjs</code> is angularjs code
 - folder <code>public/pages</code> is angularjs view templating
 
-<br/>
-<h3>Here you will learn about</h3>
+
+## Here you will learn about
 - Create server route using ExpressJS, read more : https://expressjs.com/en/guide/routing.html
 - Using server side templating using Jade Templating, read more : http://jade-lang.com/tutorial/
 - Create SPA routing using AngularJS, read more : https://docs.angularjs.org/tutorial/step_07
@@ -56,7 +54,15 @@ npm start
 - AngularJS Watch for watching some method calling
 - Using HTML5 storage API, read more : http://www.w3schools.com/html/html5_webstorage.asp
 
-</br>
-Hope will usefull for you all.</br>
 
-Question ? please email : mazipanneh@gmail.com
+**Hope will usefull for you all.**
+
+Contact Me :
+
+[![Email](https://img.shields.io/badge/mazipanneh-Email-yellow.svg?maxAge=3600)](mailto:mazipanneh@gmail.com) 
+[![Website](https://img.shields.io/badge/mazipanneh-Blog-brightgreen.svg?maxAge=3600)](https://mazipanneh.com/blog/)
+[![Facebook](https://img.shields.io/badge/mazipanneh-Facebook-blue.svg?maxAge=3600)](https://facebook.com/mazipanneh) 
+
+[![Twitter](https://img.shields.io/badge/Maz_Ipan-Twitter-55acee.svg?maxAge=3600)](https://twitter.com/Maz_Ipan) 
+[![Linkedin](https://img.shields.io/badge/irfanmaulanamazipan-Linkedin-0077b5.svg?maxAge=3600)](https://id.linkedin.com/in/irfanmaulanamazipan) 
+[![Slideshare](https://img.shields.io/badge/IrfanMaulana21-Slideshare-0077b5.svg?maxAge=3600)](https://www.slideshare.net/IrfanMaulana21) 
